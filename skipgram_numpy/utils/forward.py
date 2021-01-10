@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def ind_to_word_vecs(inds, parameters):
+def inds_to_word_vecs(inds, parameters):
     """
     inds: numpy array. shape: (1, m)
     parameters: dict. weights to be trained
@@ -41,7 +41,7 @@ def softmax(Z):
 
 
 def forward_propagation(inds, parameters):
-    word_vec = ind_to_word_vecs(inds, parameters)
+    word_vec = inds_to_word_vecs(inds, parameters)
     W, Z = linear_dense(word_vec, parameters)
     softmax_out = softmax(Z)
 

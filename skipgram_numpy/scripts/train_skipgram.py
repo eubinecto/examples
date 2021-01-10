@@ -1,8 +1,8 @@
-from skipgram_eg.utils.backward import backward_propagation, update_parameters
-from skipgram_eg.utils.cost_calculation import cross_entropy
-from skipgram_eg.utils.forward import forward_propagation
-from skipgram_eg.utils.initialisation import initialize_parameters
-from skipgram_eg.utils.training_data import tokenize, mapping, generate_training_data
+from skipgram_numpy.utils.backward import backward_propagation, update_parameters
+from skipgram_numpy.utils.cost_calculation import cross_entropy
+from skipgram_numpy.utils.forward import forward_propagation
+from skipgram_numpy.utils.initialisation import initialize_parameters
+from skipgram_numpy.utils.training_data import tokenize, mapping, generate_training_data
 import numpy as np
 from matplotlib import pyplot as plt
 
