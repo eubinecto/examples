@@ -36,7 +36,7 @@ class SkipGram(torch.nn.Module):
         return embedding
 
     def optimise(self):
-        self.w_mat_to_hidden.data -= self.learn_rate * self.w_mat_to_out.grad.data
+        self.w_mat_to_hidden.data -= self.learn_rate * self.w_mat_to_hidden.grad.data
         self.w_mat_to_out.data -= self.learn_rate * self.w_mat_to_out.grad.data
 
     def clear_grads(self):
