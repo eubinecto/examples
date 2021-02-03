@@ -14,6 +14,7 @@ class Vocab:
         return len(self.vocab_list)
 
 
+# 1984. <- 숫자. spacy.
 def tokenise_corpus(corpus: List[str]) -> List[List[str]]:
     return [
         sent.split()

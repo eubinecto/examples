@@ -1,8 +1,8 @@
 import torch
 import numpy as np
 import torch.nn.functional as F
-from skipgram_torch.model import SkipGram
-from skipgram_torch.preprocess import tokenise_corpus, build_vocab, build_id_pairs
+from skipgram.torch.model import SkipGram
+from skipgram.torch.preprocess import tokenise_corpus, build_vocab, build_id_pairs
 
 # nano corpus to use
 CORPUS = [

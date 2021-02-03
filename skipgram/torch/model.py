@@ -17,10 +17,11 @@ class SkipGram(torch.nn.Module):
 
     def forward(self, word_one_hot: torch.Tensor) -> torch.Tensor:
         """
-        :param word_one_hot: one-hot vector representation of the word
+        :param word_one_hot: one-hot vector representation of the word (V, 1)
         :return: a probability distribution over all the words in the vocab.
         """
-        embedding = self.as_embedding(word_one_hot)
+        embedding = self.as_embedding(word_one_hot)  # (N, V) * (V, 1) -> N, 1)
+        # note: we don't have activation function in the first layer.
         out = torch.matmul(self.w_mat_to_out, embedding)   # (V, N) * (N, 1) -> (V, 1) (linear transformation)
         prob_dist = F.log_softmax(out, dim=0)  # (1, V) -> (1, V) (non-linear transformation)
         return prob_dist
@@ -28,9 +29,10 @@ class SkipGram(torch.nn.Module):
     def as_embedding(self, word_one_hot: torch.Tensor) -> torch.Tensor:
         """
         If you just want to get the embedding for the word, just use this output.
-        :param word_one_hot: one-hot vector representation of the word
+        :param word_one_hot: one-hot vector representation of the word (V, 1)
         :return: the embedding representation of
         """
+        # (1,  V) * (V, N) -> (1, N)
         # (N, V) * (V, 1) *  -> (N, 1) (linear transformation)
         embedding = torch.matmul(self.w_mat_to_hidden, word_one_hot)
         return embedding
